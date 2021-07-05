@@ -53,18 +53,17 @@ export default defineComponent({
       }).filter(person => !person.name.startsWith('用户'));
       _chartList.push(...[{
         name:'寒草',
-        value:'4195392102349437',
+        value:'5555555555555555',
       },{
         name:'BBFE大家庭',
-        value:'4195392102349437',
+        value:'5555555555555555',
       },{
         name:'CodingCommunism',
-        value:'4195392102349437',
+        value:'5555555555555555',
       },{
         name:'工作这一年相识的伙伴',
-        value:'4195392102349437',
+        value:'5555555555555555',
       }])
-      console.log(_chartList, 333);
       return _chartList;
     }
 
@@ -74,10 +73,8 @@ export default defineComponent({
           {
             type: "wordCloud",
             maskImage:maskResource,
-            // shape: "circle",
             left: "center",
             top: "center",
-            // width: "55%",
             width: "70%",
             height: "90%",
             right: null,
@@ -86,7 +83,7 @@ export default defineComponent({
             rotationRange: [-90, 90],
             rotationStep: 45,
             gridSize: 8,
-            drawOutOfBound: true,
+            drawOutOfBound: false,
             layoutAnimation: true,
             textStyle: {
               fontFamily: "sans-serif",
