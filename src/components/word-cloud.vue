@@ -1,6 +1,4 @@
 <template>
-  <!-- <button type="button" @click="updateCount">count is: {{ count }}</button> -->
-  <!-- <img src="../assets/bg.jpeg" class="bg__img"/> -->
   <img src="../assets/juejin.svg" class="juejin__img"/>
   <div id="word-cloud__container" ref="containerDom"></div>
 </template>
@@ -53,10 +51,19 @@ export default defineComponent({
           value: person.user_id
         }
       }).filter(person => !person.name.startsWith('用户'));
-      _chartList.push({
+      _chartList.push(...[{
         name:'寒草',
         value:'4195392102349437',
-      })
+      },{
+        name:'BBFE大家庭',
+        value:'4195392102349437',
+      },{
+        name:'CodingCommunism',
+        value:'4195392102349437',
+      },{
+        name:'工作这一年相识的伙伴',
+        value:'4195392102349437',
+      }])
       console.log(_chartList, 333);
       return _chartList;
     }
@@ -85,18 +92,6 @@ export default defineComponent({
               fontFamily: "sans-serif",
               fontWeight: "bold",
               color: "#3f7ef7"
-              // color: function () {
-              //   // Random color
-              //   return (
-              //     "rgb(" +
-              //     [
-              //       Math.round(Math.random() * 160),
-              //       Math.round(Math.random() * 160),
-              //       Math.round(Math.random() * 160),
-              //     ].join(",") +
-              //     ")"
-              //   );
-              // },
             },
             emphasis: {
               focus: "self",
@@ -115,7 +110,6 @@ export default defineComponent({
       const _chartContainer = echarts.init(containerDom.value as HTMLElement);
       const maskResource = new Image();
       maskResource.src = juejinImageUrl;
-      console.log(maskResource)
       maskResource.onload = function(){
         setChartOption(_chartContainer, maskResource, chartList);
       }
